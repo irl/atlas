@@ -1,9 +1,67 @@
      <div class="container">
         <div class="splash">
-            <h1>Welcome to Atlas.</h1>
+		<h1><img src="img/atlas_big.png" alt="Welcome to Atlas"></h1>
             <p>Atlas is a web application to learn about currently running Tor relays. Enter your search in the above box to get started.</p>
-            <p class="learn-more"><a class="btn btn-info btn-large" href="#about">Learn more »</a></p>
+            <p class="learn-more">
+	      <a class="btn btn-large" href="https://www.torproject.org/">Visit Tor Project Homepage &raquo;</a>
+	      <a class="btn btn-primary btn-large" href="#top10">View Top 10 Relays &raquo;</a>
+	      <a class="btn btn-info btn-large" href="#/search/flag:Authority">View Directory Authorities &raquo;</a>
+	      <a class="btn btn-success btn-large" href="#/help">Help &raquo;</a>
+	    </p>
         </div>
+
+<div class="row">
+<div class="span4">
+<h2>Search and Filter</h2>
+<p>
+You can search for Tor relays and bridges by using keywords.  In particular,
+Atlas enables you to search for:
+<ul>
+	<li>(partial) nicknames (e.g., &ldquo;<a href="#/search/moria">moria</a>&rdquo;)</li>
+	<li>IP addresses (e.g., &ldquo;<a href="#/search/128.31">128.31.</a>&rdquo;)</li>
+	<li>fingerprints (e.g., &ldquo;<a href="#/search/9695DFC3">9695DFC3</a>&rdquo;)</li>
+</ul>
+<p>
+It is also possible to combine searches, e.g., &ldquo;<a
+href="#/search/moria%20128.31.">moria 128.31.</a>&rdquo;.  Finally, you can use
+qualifiers to search for relays in specific countries (e.g., &ldquo;<a
+href="#/search/moria%20country%3aus">moria country:us</a>&rdquo;), with
+specific contact information (e.g., &ldquo;<a
+href="#/search/contact%3aarma">contact:arma</a>&rdquo;), or with specific flags
+(e.g., &ldquo;<a href="#/search/flag%3aAuthority">flag:Authority</a>&rdquo;).
+</p>
+</div>
+
+<div class="span4">
+<h2>Discover</h2>
+<p>
+You are able to get a detailed view of how the relay is configured:
+<ul>
+	<li>Nickname</li>
+	<li>OR and Dir Ports</li>
+	<li>Advertised Bandwidth</li>
+	<li>Contact</li>
+	<li>Exit Policies</li>
+	<li>Uptime</li>
+	<li>Family Members</li>
+	<li>Consensus Weight</li>
+</ul>
+</p>
+</div>
+
+<div class="span4">
+<h2>Graphs</h2>
+<p>
+The historical data is available for relays in graph form:
+<ul>
+	<li>Bytes read/written per second (1m/3m/1y/5y)</li>
+	<li>Consensus weight fraction, guard probability and exist probability (1w/1m/3m/1y/5y)</li>
+</ul>
+</p>
+</div>
+</div>
+
+
     </div>
 
 

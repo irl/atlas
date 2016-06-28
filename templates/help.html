@@ -1,0 +1,87 @@
+<header id="about">
+<h1>Atlas Help</h1>
+<p class="lead">
+Atlas is a web application to discover Tor relays. It provides useful information on how relays are configured along with graphics about their past.
+</p>
+</header>
+
+<div class="page-header">
+<h1>Relay Details</h1>
+</div>
+The following details are reported for relays:
+<table class="table">
+	<tr>
+		<th>Detail</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td>Nickname</td>
+		<td>A nickname assigned by the relay operator to identify a relay. You can search by nickname, or by using a partial nickname.</td>
+	</tr>
+	<tr>
+		<td>OR Addresses</td>
+		<td>IP addresses and TCP port numbers to which Tor clients and relays can connect to to build circuits and communicate through the Tor network.</td>
+	</tr>
+	<tr>
+		<td>Contact</td>
+		<td>A line defined by the relay operator that gives contact information for the relay operator. In most cases, this will contain an email address but may also contain a GPG key ID or other information.</td>
+	</tr>
+	<tr>
+		<td>Dir Addresses</td>
+		<td>IP addresses and TCP port numbers to which Tor clients can connect to retrieve directory information. These will only be shown if the relay is configured to serve this information, and this helps reduce the load on <a href="#/search/flag%3aAuthority">directory authorities</a>.</td>
+	</tr>
+	<tr>
+		<td>Advertised Bandwidth</td>
+		<td>The volume of traffic, both incoming and outgoing, that a relay is willing to sustain, as configured by the operator and claimed to be observed from recent data transfers.</td>
+	</tr>
+	<tr>
+		<td>Exit Policies</td>
+		<td>If the relay is an exit relay, meaning it allows for connections beyond the Tor network to the general Internet, the IP address ranges and port numbers that have been allowed or denied by the relay operator will be reported.</td>
+	</tr>
+	<tr>
+		<td>Fingerprint</td>
+		<td>Each relay has a long-term public signing key called the "identity key". The fingerprint shown is the fingerprint for this identity key, allowing for relays to be uniquely identified in the Tor network. Using the identity key, relays are able to prove cryptographically that they are the relay that has a given fingerprint.</td>
+	</tr>
+	<tr>
+		<td>Flags</td>
+		<td>Flags are a special (dis-)qualification of relays for circuit positions (for example, "Guard", "Exit", "BadExit"), circuit properties (for example, "Fast", "Stable"), or roles (for example, "Authority", "HSDir"), as assigned by the directory authorities and further defined in the <a href="https://gitweb.torproject.org/torspec.git/plain/dir-spec.txt">directory protocol specification</a>.</td>
+	</tr>
+	<tr>
+		<td>Country</td>
+		<td>The country in which the relay resides, as determined using a GeoIP database.</td>
+	</tr>
+	<tr>
+		<td>AS Number and Name</td>
+		<td>The autonomous system (AS) number and name in which the relay resides, as determined using a GeoIP database. An AS is a collection of connected IP routing prefixes under the control of one or more network operators.</td>
+	</tr>
+	<tr>
+		<td>Last Restarted</td>
+		<td>The date and time the relay was last restarted.</td>
+	</tr>
+	<tr>
+		<td>Family Members</td>
+		<td>A list of fingerprints of other relays operated by the same operator. These are configured by the relay operator and can be used by Tor clients to avoid building Tor circuits using one or more relays operated by the same person or organisation.</td>
+	</tr>
+	<tr>
+		<td>Descriptor Published Platform</td>
+		<td>The Tor version and operating system that the relay is running, as reported by the relay.</td>
+	</tr>
+	<tr>
+		<td>Consensus Weight</td>
+		<td>A value assigned to a relay that is based on bandwidth observed by the relay and bandwidth measured by the directory authorities, included in the hourly published consensus, and used by clients to select relays for their circuits.</td>
+	</tr>
+	<tr>
+		<td>Uptime</td>
+		<td>How long the relay has been running since it was last restarted.</td>
+	</tr>
+	<tr>
+		<td>Running</td>
+		<td>Shows whether or not the relay is currently running.</td>
+	</tr>
+</table>
+
+<div class="page-header">
+<h1>More Information</h1>
+</div>
+
+<p>For more information, see the <a href="https://metrics.torproject.org/about.html">Tor Metrics FAQ</a>.</p>

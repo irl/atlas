@@ -7,8 +7,9 @@ define([
   'views/search/main',
   'views/search/do',
   'views/about/main',
+  'views/help/main',
   'jssha'
-], function($, _, Backbone, mainDetailsView, mainSearchView, doSearchView, aboutView, jsSHA){
+], function($, _, Backbone, mainDetailsView, mainSearchView, doSearchView, aboutView, helpView, jsSHA){
   var AppRouter = Backbone.Router.extend({
     routes: {
        // Define the routes for the actions in Atlas
@@ -16,6 +17,7 @@ define([
     	'search/:query': 'doSearch',
 	'top10': 'showTop10',
     	'about': 'showAbout',
+	'help': 'showHelp',
     	// Default
     	'*actions': 'defaultAction'
     },
@@ -75,7 +77,14 @@ define([
                     doSearchView.relays = doSearchView.collection.models;
 		    doSearchView.error = err;
                     doSearchView.render(query);
-		    $("#search-title").text(query);
+		    if ( query == "flag:Authority" ) {
+                       $("#search-title").text("Directory Authorities");
+                       $("#search-explanation").text("This search shows the directory authorities in the Tor network. A directory authority is a special-purpose relay that maintains a list of currently-running relays and periodically publishes a consensus together with the other directory authorities. The consensus is a single document compiled and voted on by the directory authorities once per hour, ensuring that all clients have the same information about the relays that make up the Tor network.");
+		       $("#search-explanation").show();
+		    } else {
+		       $("#search-title").text(query);
+		       $("#search-explanation").hide();
+		    }
                     $("#loading").hide();
                 },
 
@@ -102,6 +111,8 @@ define([
                     doSearchView.relays = doSearchView.collection.models;
                     doSearchView.render("");
 		    $("#search-title").text("Top 10 Relays by Consensus Weight");
+		    $("#search-explanation").text("This search shows the top 10 relays in the Tor network sorted by consensus weight. This is not a value of the advertised bandwidth but instead a value assigned to a relay that is based on bandwidth observed by the relay and bandwidth measured by the directory authorities, included in the hourly published consensus, and used by clients to select relays for their circuits.");
+		    $("#search-explanation").show();
                     $("#loading").hide();
                 },
 
@@ -121,6 +132,19 @@ define([
         //$("#content").hide();
 
     	aboutView.render();
+
+        $("#loading").hide();
+        //$("#content").show();
+    },
+    // Display the Atlas help page
+    showHelp: function(){
+        $("#home").removeClass("active");
+        $("#about").addClass("active");
+
+        $("#loading").show();
+        //$("#content").hide();
+
+    	helpView.render();
 
         $("#loading").hide();
         //$("#content").show();
