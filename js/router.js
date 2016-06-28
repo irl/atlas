@@ -78,8 +78,8 @@ define([
 		    doSearchView.error = err;
                     doSearchView.render(query);
 		    if ( query == "flag:Authority" ) {
-                       $("#search-title").text("Directory Authorities");
-                       $("#search-explanation").text("This search shows the directory authorities in the Tor network. A directory authority is a special-purpose relay that maintains a list of currently-running relays and periodically publishes a consensus together with the other directory authorities. The consensus is a single document compiled and voted on by the directory authorities once per hour, ensuring that all clients have the same information about the relays that make up the Tor network.");
+                       $("#search-title").text("Authorities");
+                       $("#search-explanation").text("This search shows the authorities in the Tor network. There are two types of authority in the Tor network: directory authorities and bridge authorities. A directory authority is a special-purpose relay that maintains a list of currently-running relays and periodically publishes a consensus together with the other directory authorities. The consensus is a single document compiled and voted on by the directory authorities once per hour, ensuring that all clients have the same information about the relays that make up the Tor network. A bridge authority is a special-purpose relay that maintains a list of bridges as input for external bridge distribution mechanisms (for example, BridgeDB).");
 		       $("#search-explanation").show();
 		    } else {
 		       $("#search-title").text(query);
